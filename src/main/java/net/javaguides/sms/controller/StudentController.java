@@ -2,10 +2,7 @@ package net.javaguides.sms.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import net.javaguides.sms.entity.Student;
 import net.javaguides.sms.service.StudentService;
@@ -36,7 +33,10 @@ public class StudentController {
 		return "create_student";
 		
 	}
-	
+	@RequestMapping(value="/do-stuff")
+	public void doStuffMethod() {
+		System.out.println("hi");
+	}
 	@PostMapping("/students")
 	public String saveStudent(@ModelAttribute("student") Student student) {
 		studentService.saveStudent(student);
